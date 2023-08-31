@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 LABEL maintainer="Jonas Råberg"
+LABEL org.opencontainers.image.source https://github.com/jraberg/ubuntu-terraform
 
 # Install packages
 RUN apt-get update && apt-get install -y \
