@@ -8,10 +8,14 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     git \
     unzip \
+    yamllint \
+    shellcheck \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 # Install tfenv
 RUN git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 ENV PATH="/root/.tfenv/bin:${PATH}"
 
-WORKDIR /root
+# Install tflint
+RUN curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
